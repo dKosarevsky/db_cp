@@ -23,7 +23,6 @@ def header():
 # @st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None})
 def init_connection():
     return psycopg2.connect(**st.secrets["postgres"])
-    # return psycopg2.connect(st.secrets["postgres"])
 
 
 # Perform query.
@@ -40,11 +39,11 @@ def main():
 
     conn = init_connection()
 
-    # rows = run_query("SELECT * from mytable;")
+    rows = run_query("SELECT * from information_schema.sql_sizing;")
 
-    # Print results.
-    # for row in rows:
-    #     st.write(f"{row[0]} has a :{row[1]}:")
+    Print results.
+    for row in rows:
+        st.write(f"{row[0]} has a :{row[1]}:")
 
 
 if __name__ == "__main__":
