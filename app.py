@@ -41,7 +41,7 @@ def main():
 
     rows = run_query("SELECT * from information_schema.sql_sizing;")
 
-    Print results.
+    # Print results.
     for row in rows:
         st.write(f"{row[0]} has a :{row[1]}:")
 
