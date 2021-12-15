@@ -1,6 +1,7 @@
 import streamlit as st
 import psycopg2
 
+
 # st.set_page_config(initial_sidebar_state="collapsed")
 
 
@@ -39,7 +40,7 @@ def main():
 
     conn = init_connection()
 
-    rows = run_query("SELECT * from information_schema.sql_sizing;")
+    rows = run_query(conn, "SELECT * from information_schema.sql_sizing;")
 
     # Print results.
     for row in rows:
@@ -48,4 +49,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
