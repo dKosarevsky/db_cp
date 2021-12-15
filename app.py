@@ -38,8 +38,6 @@ def run_query(conn, query):
 def main():
     header()
 
-    st.markdown(st.secrets["postgres"])
-
     conn = init_connection()
 
     # rows = run_query("SELECT * from mytable;")
