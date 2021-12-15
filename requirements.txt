@@ -1,0 +1,15 @@
+# db
+psycopg2-binary==2.9.2  # https://github.com/psycopg/psycopg
+python-dotenv==0.12.0
+
+# Streamlit
+streamlit==1.1.0  # https://streamlit.io/
+
+# data organisation and analysis
+pandas==1.3.3  # https://pandas.pydata.org/
+
+# math and statistic
+numpy==1.21.2  # https://numpy.org/
+
+# plots
+plotly==5.3.1  # https://plotly.com/python/
