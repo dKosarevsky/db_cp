@@ -1,4 +1,5 @@
 # Базы данных. Курсовой проект.
 
 ___
-[web-interface](https://share.streamlit.io/dkosarevsky/db_cp/app.py)
+* [web-interface](https://share.streamlit.io/dkosarevsky/db_cp/app.py)
+* [generatedata](https://generatedata.com/)
