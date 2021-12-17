@@ -1,6 +1,7 @@
 # db
 psycopg2-binary==2.9.2  # https://github.com/psycopg/psycopg
-python-dotenv==0.12.0
+pymongo==4.0.1  # https://pymongo.readthedocs.io/en/stable/
+dnspython==2.1.0  # https://pypi.org/project/dnspython/
 
 # Streamlit
 streamlit==1.1.0  # https://streamlit.io/
