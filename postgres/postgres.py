@@ -20,6 +20,10 @@ def get_sql_query(filename):
 def main():
     st.subheader("Postgres")
 
+    show_schema = st.checkbox("Показать диаграмму")
+    if show_schema:
+        st.image("postgres/pg_schema.png")
+
     conn = init_connection()
     st.write(conn)
 
