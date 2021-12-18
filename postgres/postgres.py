@@ -10,15 +10,6 @@ def init_connection():
     return psycopg2.connect(**st.secrets["postgres"])
 
 
-# Perform query.
-# Uses st.cache to only rerun when the query changes or after 10 min.
-# @st.cache(ttl=600)
-def run_query(conn, query):
-    with conn.cursor() as cur:
-        cur.execute(query)
-        return cur.fetchall()
-
-
 def get_sql_query(filename):
     f = open(f"queries/{filename}", encoding="utf-8", mode="r")
     query = f.read()
@@ -34,6 +25,14 @@ def main():
 
     users_purchases = pd.read_sql(get_sql_query("customers_purchases.sql"), conn)
     st.write(users_purchases)
+
+    customers_sums = pd.read_sql(get_sql_query("customers_sums.sql"), conn)
+    st.write(customers_sums)
+
+    month = st.selectbox("Выберите месяц:", min_value=1, max_value=12, value=8)
+    sum_by_month_query = get_sql_query("sum_by_month.sql").format(month=month)
+    sum_by_month = pd.read_sql(sum_by_month_query, conn)
+    st.write(sum_by_month)
 
 
 if __name__ == "__main__":
