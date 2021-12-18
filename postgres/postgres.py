@@ -23,17 +23,47 @@ def main():
     conn = init_connection()
     st.write(conn)
 
-    users_purchases = pd.read_sql(get_sql_query("customers_purchases.sql"), conn)
-    st.write(users_purchases)
+    display = (
+        "Покупатели и их покупки",
+        "Суммы покупок покупателей",
+        "Сумма всех покупок за выбранный месяц",
+        "Суммы покупок по месяцам",
+        "Кумулятивная сумма",
+    )
+    options = list(range(len(display)))
+    select = st.selectbox("Выберите запрос", options, format_func=lambda x: display[x])
+    query = None
 
-    customers_sums = pd.read_sql(get_sql_query("customers_sums.sql"), conn)
-    st.write(customers_sums)
+    if select == 0:
+        query = get_sql_query("customers_purchases.sql")
+        users_purchases = pd.read_sql(query, conn)
+        st.write(users_purchases)
 
-    months = range(1, 13)
-    month = st.selectbox("Выберите месяц:", months)
-    sum_by_month_query = get_sql_query("sum_by_month.sql").format(month=month)
-    sum_by_month = pd.read_sql(sum_by_month_query, conn)
-    st.write(sum_by_month)
+    elif select == 1:
+        query = get_sql_query("customers_sums.sql")
+        customers_sums = pd.read_sql(query, conn)
+        st.write(customers_sums)
+
+    elif select == 2:
+        months = range(1, 13)
+        month = st.selectbox("Выберите месяц:", months)
+        query = get_sql_query("sum_by_month.sql").format(month=month)
+        sum_by_month = pd.read_sql(query, conn)
+        st.write(sum_by_month)
+
+    elif select == 3:
+        query = get_sql_query("sums_by_months.sql")
+        sums_by_months = pd.read_sql(query, conn)
+        st.write(sums_by_months)
+
+    elif select == 4:
+        query = get_sql_query("cum_sum.sql")
+        cum_sum = pd.read_sql(query, conn)
+        st.write(cum_sum)
+
+    show_query = st.checkbox("Показать SQL-запрос")
+    if show_query:
+        st.code(query)
 
 
 if __name__ == "__main__":
