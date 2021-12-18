@@ -25,7 +25,6 @@ def main():
         st.image("postgres/pg_schema.png")
 
     conn = init_connection()
-    st.write(conn)
 
     display = (
         "Покупатели и их покупки",

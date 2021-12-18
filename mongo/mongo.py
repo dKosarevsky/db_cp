@@ -25,7 +25,6 @@ def main():
     # st.write(test_collection.find_one())
 
     db = client.sample_analytics
-    st.write(db)
     st.write(db.customers.find_one())
 
     # items = get_data(client)
