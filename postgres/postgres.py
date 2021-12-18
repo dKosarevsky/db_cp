@@ -1,5 +1,6 @@
 import streamlit as st
 import psycopg2
+import pandas as pd
 
 
 # Initialize connection.
@@ -18,16 +19,21 @@ def run_query(conn, query):
         return cur.fetchall()
 
 
+def get_sql_query(filename):
+    f = open(f"queries/{filename}", encoding="utf-8", mode="r")
+    query = f.read()
+    f.close()
+    return query
+
+
 def main():
     st.subheader("Postgres")
 
     conn = init_connection()
     st.write(conn)
-    rows = run_query(conn, "SELECT * from information_schema.sql_sizing;")
 
-    # Print results.
-    for row in rows:
-        st.write(f"{row[0]} has a :{row[1]}:")
+    users_purchases = pd.read_sql(get_sql_query("customers_purchases.sql"), conn)
+    st.write(users_purchases)
 
 
 if __name__ == "__main__":
