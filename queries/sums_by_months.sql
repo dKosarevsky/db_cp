@@ -1,4 +1,3 @@
--- найти суммы покупок помесячно:
 SELECT
        SUM(price) as total_sales,
        EXTRACT(month from date) as month

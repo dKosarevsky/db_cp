@@ -1,4 +1,3 @@
--- вывести покупателей и суммы их покупок:
 SELECT
        c.name as customer_name,
        SUM(p.price) as total_sales

@@ -1,4 +1,3 @@
--- вывести покупателей и их покупки:
 SELECT
        p.name as product_name,
        p.price,
