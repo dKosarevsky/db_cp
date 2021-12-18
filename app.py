@@ -8,7 +8,7 @@ from postgres import postgres
 def header():
     author = """
         made by [Kosarevsky Dmitry](https://github.com/dKosarevsky) 
-        for [DB](https://github.com/dKosarevsky/iu7/blob/master/7sem/db.md) course project
+        for [DB](https://github.com/dKosarevsky/db_cp) course project
         in [BMSTU](https://bmstu.ru)
     """
     st.header("МГТУ им. Баумана. Кафедра ИУ7")
