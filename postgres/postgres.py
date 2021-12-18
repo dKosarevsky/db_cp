@@ -29,7 +29,8 @@ def main():
     customers_sums = pd.read_sql(get_sql_query("customers_sums.sql"), conn)
     st.write(customers_sums)
 
-    month = st.selectbox("Выберите месяц:", min_value=1, max_value=12, value=8)
+    months = range(1, 13)
+    month = st.selectbox("Выберите месяц:", months)
     sum_by_month_query = get_sql_query("sum_by_month.sql").format(month=month)
     sum_by_month = pd.read_sql(sum_by_month_query, conn)
     st.write(sum_by_month)
