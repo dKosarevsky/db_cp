@@ -18,7 +18,7 @@ def header():
     st.sidebar.image('logo.png', width=300)
     st.sidebar.markdown(author)
 
-    st.markdown("Данные сгенерированы с помощью генератора данных [generatedata](https://generatedata.com/)")
+    st.sidebar.markdown("Данные сгенерированы с помощью генератора данных [generatedata](https://generatedata.com/)")
 
 
 def main():
