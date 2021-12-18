@@ -31,7 +31,7 @@ def main():
         "Кумулятивная сумма",
     )
     options = list(range(len(display)))
-    select = st.selectbox("Выберите запрос", options, format_func=lambda x: display[x])
+    select = st.selectbox("Выберите запрос:", options, format_func=lambda x: display[x])
     query = None
 
     if select == 0:
