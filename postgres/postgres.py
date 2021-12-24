@@ -48,8 +48,7 @@ def main():
         st.write(customers_sums)
 
     elif select == 2:
-        months = range(1, 13)
-        month = st.selectbox("Выберите месяц:", months)
+        month = int(st.slider("Выберите месяц:", min_value=1, max_value=12, value=1, step=1))
         query = get_sql_query("sum_by_month.sql").format(month=month)
         sum_by_month = pd.read_sql(query, conn)
         st.write(sum_by_month)
