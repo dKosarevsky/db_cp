@@ -13,7 +13,7 @@ def get_data(client):
 
 
 def main():
-    st.subheader("Mongo")
+    st.image("mongo/logo.png", width=300)
 
     # Initialize connection.
     client = pymongo.MongoClient(**st.secrets["mongo"])

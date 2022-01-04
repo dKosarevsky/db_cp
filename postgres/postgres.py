@@ -18,7 +18,7 @@ def get_sql_query(filename):
 
 
 def main():
-    st.subheader("Postgres")
+    st.image("postgres/logo.png", width=300)
 
     show_schema = st.checkbox("Показать диаграмму")
     if show_schema:
