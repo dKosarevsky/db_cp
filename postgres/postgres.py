@@ -73,14 +73,14 @@ def main():
     if show_query:
         st.code(query)
 
-    show_init = st.checkbox("Показать SQL-запросы инициализации БД")
-    if show_init:
-        st.code(get_sql_query("init.sql"))
-
     st.markdown("Данные сгенерированы с помощью [generatedata](https://generatedata.com/) и SQL-функций")
     show_funcs = st.checkbox("Показать использованные SQL-функции")
     if show_funcs:
         st.code(get_sql_query("random.sql"))
+
+    show_init = st.checkbox("Показать SQL-запросы инициализации БД")
+    if show_init:
+        st.code(get_sql_query("init.sql"))
 
 
 if __name__ == "__main__":
