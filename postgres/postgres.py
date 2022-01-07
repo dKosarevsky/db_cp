@@ -33,6 +33,7 @@ def main():
         "Суммы покупок по месяцам",
         "Кумулятивная сумма",
         "Топ 20 продаж по регионам",
+        "День недели с максимальными продажами",
     )
     options = list(range(len(display)))
     select = st.selectbox("Выберите запрос:", options, format_func=lambda x: display[x])
@@ -69,10 +70,16 @@ def main():
         cum_sum = pd.read_sql(query, conn)
         st.write(cum_sum)
 
+    elif select == 6:
+        query = get_sql_query("pop_day.sql")
+        cum_sum = pd.read_sql(query, conn)
+        st.write(cum_sum)
+
     show_query = st.checkbox("Показать SQL-запрос")
     if show_query:
         st.code(query)
 
+    st.markdown("---")
     st.markdown("Данные сгенерированы с помощью [generatedata](https://generatedata.com/) и SQL-функций")
     show_funcs = st.checkbox("Показать использованные SQL-функции")
     if show_funcs:
