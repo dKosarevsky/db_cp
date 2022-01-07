@@ -32,6 +32,7 @@ def main():
         "Сумма всех покупок за выбранный месяц",
         "Суммы покупок по месяцам",
         "Кумулятивная сумма",
+        "Топ 20 продаж по регионам",
     )
     options = list(range(len(display)))
     select = st.selectbox("Выберите запрос:", options, format_func=lambda x: display[x])
@@ -63,9 +64,23 @@ def main():
         cum_sum = pd.read_sql(query, conn)
         st.write(cum_sum)
 
+    elif select == 5:
+        query = get_sql_query("top_regional_sales.sql")
+        cum_sum = pd.read_sql(query, conn)
+        st.write(cum_sum)
+
     show_query = st.checkbox("Показать SQL-запрос")
     if show_query:
         st.code(query)
+
+    show_init = st.checkbox("Показать SQL-запросы инициализации БД")
+    if show_init:
+        st.code(get_sql_query("init.sql"))
+
+    st.markdown("Данные сгенерированы с помощью [generatedata](https://generatedata.com/) и SQL-функций")
+    show_funcs = st.checkbox("Показать использованные SQL-функции")
+    if show_funcs:
+        st.code(get_sql_query("random.sql"))
 
 
 if __name__ == "__main__":
