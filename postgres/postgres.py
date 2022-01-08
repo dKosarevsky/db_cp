@@ -34,6 +34,7 @@ def main():
         "Кумулятивная сумма",
         "Топ 20 продаж по регионам",
         "День недели с максимальными продажами",
+        "Поиск покупателя",
     )
     options = list(range(len(display)))
     select = st.selectbox("Выберите запрос:", options, format_func=lambda x: display[x])
@@ -72,6 +73,15 @@ def main():
 
     elif select == 6:
         query = get_sql_query("pop_day.sql")
+        cum_sum = pd.read_sql(query, conn)
+        st.write(cum_sum)
+
+    elif select == 7:
+        c1, c2 = st.columns(2)
+        name = st.text_input("Введите имя или часть имени:", value="james", max_chars=100)
+        age_from = c1.number_input("Введите возраст (от):", min_value=1, max_value=120, value=18, step=1)
+        age_to = c2.number_input("Введите возраст (до):", min_value=1, max_value=120, value=60, step=1)
+        query = get_sql_query("find_customer.sql").format(name=name, age_from=age_from, age_to=age_to)
         cum_sum = pd.read_sql(query, conn)
         st.write(cum_sum)
 
