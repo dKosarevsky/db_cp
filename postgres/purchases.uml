@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.purchases</OriginalElement>
+  <nodes>
+    <node x="384.0" y="126.0">ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.managers</node>
+    <node x="471.75" y="328.0">ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.purchases</node>
+    <node x="917.0" y="159.0">ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.stores</node>
+    <node x="575.0" y="137.0">ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.customers</node>
+    <node x="0.0" y="159.0">ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.transactions</node>
+    <node x="203.0" y="126.0">ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.products</node>
+    <node x="747.0" y="159.0">ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.regions</node>
+    <node x="211.5" y="0.0">ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.categories</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.purchases" target="ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.customers" relationship="REFERENCES">
+      <point x="14.75" y="-115.0" />
+      <point x="575.0" y="288.0" />
+      <point x="651.0" y="288.0" />
+      <point x="0.0" y="60.0" />
+    </edge>
+    <edge source="ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.purchases" target="ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.transactions" relationship="REFERENCES">
+      <point x="-73.75" y="-115.0" />
+      <point x="486.5" y="308.0" />
+      <point x="91.5" y="308.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.purchases" target="ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.regions" relationship="REFERENCES">
+      <point x="44.25" y="-115.0" />
+      <point x="604.5" y="298.0" />
+      <point x="822.0" y="298.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.purchases" target="ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.managers" relationship="REFERENCES">
+      <point x="-14.75" y="-115.0" />
+      <point x="545.5" y="288.0" />
+      <point x="469.5" y="288.0" />
+      <point x="0.0" y="71.0" />
+    </edge>
+    <edge source="ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.purchases" target="ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.products" relationship="REFERENCES">
+      <point x="-44.25" y="-115.0" />
+      <point x="516.0" y="298.0" />
+      <point x="283.5" y="298.0" />
+      <point x="0.0" y="71.0" />
+    </edge>
+    <edge source="ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.purchases" target="ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.stores" relationship="REFERENCES">
+      <point x="73.75" y="-115.0" />
+      <point x="634.0" y="308.0" />
+      <point x="989.0" y="308.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.products" target="ca772b0f-b152-4db9-8d9f-14d058302ed7.TABLE:d8r54qu01pb9tu.db_cp.categories" relationship="REFERENCES">
+      <point x="0.0" y="-71.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.3352908056461454" showDependencies="false" x="544.6270255457832" y="305.8291161001025" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
