@@ -115,7 +115,7 @@ def main():
         st.write(age_count_filter)
 
     elif select == 12:
-        query = st.text_input("Введите произвольный запрос:", value="select * from db_cp.transactions limit 10")
+        query = st.text_area("Введите произвольный запрос:", value="select * from db_cp.transactions limit 10")
         avg_salary_filter = pd.read_sql(query, conn)
         st.write(avg_salary_filter)
 
