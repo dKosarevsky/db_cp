@@ -1103,25 +1103,76 @@ SELECT random_number(1, 48)::int                                         as cate
        random_number(1, 5000)::int                                       as price
 FROM generate_series(1, 800);
 
+-- create table stores
+CREATE TABLE IF NOT EXISTS db_cp.stores
+(
+    id   SERIAL PRIMARY KEY,
+    name varchar(48) NOT NULL
+);
+
+-- populate table stores
+INSERT INTO db_cp.stores (name)
+SELECT random_string(8) as name
+FROM generate_series(1, 200);
+
+-- create table transactions
+CREATE TABLE IF NOT EXISTS db_cp.transactions
+(
+    id             SERIAL PRIMARY KEY,
+    is_credit_card bool NOT NULL
+);
+
+-- populate table transactions
+INSERT INTO db_cp.transactions (is_credit_card)
+SELECT random()::int::bool as is_credit_card
+FROM generate_series(1, 1000);
+
+-- create table managers
+CREATE TABLE IF NOT EXISTS db_cp.managers
+(
+    id         SERIAL PRIMARY KEY,
+    name       varchar(48) NOT NULL,
+    salary     INT,
+    birth_date timestamp,
+    email      varchar(50)
+);
+
+-- populate table managers
+INSERT INTO db_cp.managers (name, salary, birth_date, email)
+SELECT random_string(8)                                                     as name,
+       random_number(30000, 320000)::int                                    as salary,
+       (NOW() - (interval '18 years')) - (random() * (interval '50 years')) as birth_date,
+       'manager' || random_number(1, 312)::int || '@bmstu-market.ru'        as email
+FROM generate_series(1, 312);
+
 -- create table purchases
 CREATE TABLE IF NOT EXISTS db_cp.purchases
 (
-    id         SERIAL PRIMARY KEY,
-    user_id    integer NOT NULL
+    id             SERIAL PRIMARY KEY,
+    user_id        integer NOT NULL
         constraint purchases_customers_id_fk references db_cp.customers,
-    product_id integer NOT NULL
+    product_id     integer NOT NULL
         constraint purchases_products_id_fk references db_cp.products,
-    region_id  integer NOT NULL
+    region_id      integer NOT NULL
         constraint purchases_regions_id_fk references db_cp.regions,
-    amount     int     NOT NULL,
-    date       date
+    store_id       integer NOT NULL
+        constraint purchases_stores_id_fk references db_cp.stores,
+    transaction_id integer NOT NULL
+        constraint purchases_transactions_id_fk references db_cp.transactions,
+    manager_id     integer NOT NULL
+        constraint purchases_managers_id_fk references db_cp.managers,
+    amount         int     NOT NULL,
+    date           date
 );
 
 -- populate table purchases
-INSERT INTO db_cp.purchases (user_id, product_id, region_id, amount, date)
+INSERT INTO db_cp.purchases (user_id, product_id, region_id, store_id, transaction_id, manager_id, amount, date)
 SELECT random_number(1, 500)::int                                    as user_id,
        random_number(1, 200)::int                                    as product_id,
        random_number(1, 49)::int                                     as region_id,
+       random_number(1, 200)::int                                    as store_id,
+       random_number(1, 1000)::int                                   as transaction_id,
+       random_number(1, 312)::int                                    as manager_id,
        ceil(random() * 1000)                                         as amount,
        '2021-01-01'::date + interval '1 days' * ceil(random() * 365) as date
 FROM generate_series(1, 1000);
