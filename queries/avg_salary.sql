@@ -1,0 +1,5 @@
+SELECT date_part('year', age(birth_date)) as age,
+       avg(salary)::int                   as salary_avg
+FROM db_cp.managers
+GROUP BY age
+ORDER BY salary_avg desc;
