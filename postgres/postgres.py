@@ -68,13 +68,13 @@ def main():
 
     elif select == 5:
         query = get_sql_query("top_regional_sales.sql")
-        cum_sum = pd.read_sql(query, conn)
-        st.write(cum_sum)
+        top_regional_sales = pd.read_sql(query, conn)
+        st.write(top_regional_sales)
 
     elif select == 6:
         query = get_sql_query("pop_day.sql")
-        cum_sum = pd.read_sql(query, conn)
-        st.write(cum_sum)
+        pop_day = pd.read_sql(query, conn)
+        st.write(pop_day)
 
     elif select == 7:
         c1, c2 = st.columns(2)
