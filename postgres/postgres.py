@@ -39,6 +39,7 @@ def main():
         "Средняя зарплата с фильтром",
         "Возраст сотрудников",
         "Возраст сотрудников с фильтром",
+        "Произвольный запрос",
     )
     options = list(range(len(display)))
     select = st.selectbox("Выберите запрос:", options, format_func=lambda x: display[x])
