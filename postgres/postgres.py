@@ -109,7 +109,7 @@ def main():
         c1, c2 = st.columns(2)
         age_from = c1.number_input("Введите возраст (от):", min_value=1, max_value=120, value=1, step=1)
         age_to = c2.number_input("Введите возраст (до):", min_value=1, max_value=120, value=5, step=1)
-        query = get_sql_query("age_count_filter.sql").format(from=age_from, to=age_to)
+        query = get_sql_query("age_count_filter.sql").format(age_from=age_from, age_to=age_to)
         age_count_filter = pd.read_sql(query, conn)
         st.write(age_count_filter)
 
